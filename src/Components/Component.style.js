@@ -26,5 +26,16 @@ const styles = StyleSheet.create({
         right: "5%",
         top: "-15%"
     },
+    myStarStyle: {
+        color: 'yellow',
+        backgroundColor: 'transparent',
+        fontSize:15,
+        textShadowColor: Colors.primary,
+        textShadowOffset: { width: 1, height: 1 },
+        textShadowRadius: 2,
+    },
+    myEmptyStarStyle: {
+        color: 'white',
+    }
 })
 export default styles;
