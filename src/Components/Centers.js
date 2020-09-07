@@ -8,3 +8,4 @@ const Centers = ({ data, index }) => {
     )
 }
 export default Centers;
+// 
