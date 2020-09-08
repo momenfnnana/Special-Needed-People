@@ -4,5 +4,8 @@ import Header from './AuthenticationHeader';
 import FormButton from './SonDataButton';
 import HeaderTitle from './HeaderTitle';
 import Centers from './Centers';
-
-export { TextInput, Button, Header, FormButton, HeaderTitle, Centers };
+import ServicesCard from './ServicesCard';
+import Footer from './Footer';
+import ThickHeader from './ThickHeader';
+import SpecialistsCard from './SpecialistsCard';
+export { TextInput, Button, Header, FormButton, HeaderTitle, Centers, ServicesCard, Footer, ThickHeader, SpecialistsCard };

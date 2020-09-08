@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Home, Splash, IntroSlider, Login, SignUp, SonFormData } from './src/screens/Index';
+import { Home, Splash, IntroSlider, Login, SignUp, SonFormData, ServiceDetails } from './src/screens/Index';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 
@@ -35,7 +35,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Home />
+      <ServiceDetails />
     </View>
   );
 }
