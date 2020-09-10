@@ -29,13 +29,10 @@ const styles = StyleSheet.create({
     myStarStyle: {
         color: 'yellow',
         backgroundColor: 'transparent',
-        fontSize: 15,
-        textShadowColor: Colors.primary,
-        textShadowOffset: { width: 1, height: 1 },
-        textShadowRadius: 2,
+        fontSize: 15
     },
     myEmptyStarStyle: {
-        color: 'white',
+        color: Colors.semiGray + 50
     },
     centerTitle: {
         color: Colors.primary,
@@ -51,7 +48,7 @@ const styles = StyleSheet.create({
     },
     thickHeaderImageContainer: {
         width: SCREEN_WIDTH,
-        height: SCREEN_HEIGHT/3
+        height: SCREEN_HEIGHT / 3
     },
     thickHeaderLeftLogo: {
         position: "absolute",
@@ -101,5 +98,106 @@ const styles = StyleSheet.create({
         alignItems: "flex-end",
         justifyContent: "flex-start"
     },
+    specialistsContainer: {
+        flexDirection: "row-reverse",
+        alignItems: "center",
+        // right: "30%",
+        marginVertical: "2%",
+        justifyContent: "space-between",
+        width: SCREEN_WIDTH
+    },
+    specialistsDetailsContainer: {
+        flexDirection: "row-reverse",
+        justifyContent: "space-between",
+        width: 165,
+        // alignSelf: "flex-start"
+    },
+    specialistsName: {
+        fontSize: 10,
+        color: Colors.primary,
+        fontFamily: "ArbFONTS-Montserrat-Arabic-Medium"
+    },
+    specialistsStatusContainer: {
+        flexDirection: "row-reverse",
+        alignItems: "center",
+    },
+    speicalistsStatus: {
+        marginRight: "25%",
+        fontFamily: "ArbFONTS-Montserrat-Arabic-Regular",
+        fontSize: 9
+    },
+    specialistsStatusColor: {
+        marginRight: "2%",
+        height: 10,
+        width: 10,
+        borderRadius: 10,
+    },
+    specialistsJob: {
+        fontSize: 8,
+        color: Colors.semiGray,
+        fontFamily: "ArbFONTS-Montserrat-Arabic-Regular"
+    },
+    specialistsButtonContainer: {
+        backgroundColor: Colors.primary,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        marginLeft: "5%",
+        borderRadius: 5
+    },
+    specialistsButtonText: {
+        color: Colors.white,
+        fontSize: 12,
+        fontFamily: "ArbFONTS-Montserrat-Arabic-Regular"
+    },
+    RateContainer: {
+        marginHorizontal: 10,
+        width: SCREEN_WIDTH / 1.7,
+        backgroundColor: "#fff",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.30,
+        shadowRadius: 4.65,
+        elevation: 8,
+        marginVertical: "5%",
+        padding: 20,
+        borderRadius: 10
+    },
+    RateDescription: {
+        color: Colors.semiGray,
+        fontFamily: "ArbFONTS-Montserrat-Arabic-Regular",
+        fontSize: 8,
+        lineHeight: 20,
+        alignSelf: "center",
+        textAlign: "center"
+    },
+    rateImg: {
+        position: "absolute",
+        top: "-25%",
+        alignSelf: "center"
+    },
+    serviceStar: {
+        color: 'yellow',
+        backgroundColor: 'transparent',
+        fontSize: 25
+    },
+    emptyServiceStar: {
+        color: Colors.semiGray + 50,
+    },
+    starsSpace: {
+        marginVertical: 10
+    },
+    specialistsModalContainer: {
+        width: "90%",
+        flexDirection: "row-reverse",
+        alignSelf: "center",
+        paddingVertical: 10,
+        borderRadius: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        marginVertical: "3%"
+    }
 })
 export default styles;

@@ -1,51 +1,30 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { Colors } from '../Constant';
-
-const SpecialistsCard = ({ data }) => {
+import styles from './Component.style';
+const SpecialistsCard = ({ data, onPress }) => {
     return (
-        <View style={{
-            flexDirection: "row-reverse",
-            alignItems: "center",
-            right: "30%",
-            marginVertical: "2%"
-        }}>
-            <Image source={data.img === null ? require('../../assets/images/UserImage.png') : data.img} />
+        <View style={styles.specialistsContainer}>
             <View style={{
-                marginRight: "2%"
+                flexDirection: "row-reverse",
+                alignItems: "center",
+                justifyContent: "center"
             }}>
-                <View style={{ flexDirection: "row-reverse", justifyContent: "space-between" }}>
-                    <Text style={{
-                        fontSize: 10,
-                        color: Colors.primary,
-                        fontFamily: "ArbFONTS-Montserrat-Arabic-Medium"
-                    }}>{data.name}</Text>
-                    <View style={{
-                        flexDirection: "row-reverse",
-                        alignItems: "center",
-                    }}>
-                        <Text style={{
-                            marginRight: "25%",
-                            color: data.status === "نشط الآن" ? Colors.green : Colors.red,
-                            fontFamily: "ArbFONTS-Montserrat-Arabic-Regular",
-                            fontSize: 9
-                        }}>{data.status}</Text>
-                        <View style={{
-                            marginRight: "2%",
-                            height: 10,
-                            width: 10,
-                            borderRadius: 10,
-                            backgroundColor: data.status === "نشط الآن" ? Colors.green : Colors.red,
-
-                        }} />
+                <Image style={{ marginRight: "5%" }} source={data.img === null ? require('../../assets/images/UserImage.png') : data.img} />
+                <View style={{ marginRight: 10 }}>
+                    <View style={styles.specialistsDetailsContainer}>
+                        <Text style={styles.specialistsName}>{data.name}</Text>
+                        <View style={styles.specialistsStatusContainer}>
+                            <Text style={[styles.speicalistsStatus, { color: data.status === "نشط الآن" ? Colors.green : Colors.red }]}>{data.status}</Text>
+                            <View style={[styles.specialistsStatusColor, { backgroundColor: data.status === "نشط الآن" ? Colors.green : Colors.red }]} />
+                        </View>
                     </View>
+                    <Text style={styles.specialistsJob}>{data.job}</Text>
                 </View>
-                <Text style={{
-                    fontSize: 8,
-                    color: Colors.semiGray,
-                    fontFamily: "ArbFONTS-Montserrat-Arabic-Regular"
-                }}>{data.job}</Text>
             </View>
+            <TouchableOpacity onPress={onPress} style={styles.specialistsButtonContainer}>
+                <Text style={styles.specialistsButtonText}>تواصل</Text>
+            </TouchableOpacity>
         </View>
     )
 }

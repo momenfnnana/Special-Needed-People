@@ -3,6 +3,33 @@ import { Colors, Constant } from '../../Constant';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 const styles = StyleSheet.create({
-
+    title: {
+        right: "5%",
+        fontFamily: "ArbFONTS-Montserrat-Arabic-SemiBold",
+        color: Colors.secondary
+    },
+    detailsText: {
+        fontSize: 10,
+        color: Colors.semiGray,
+        fontFamily: "ArbFONTS-Montserrat-Arabic-Regular",
+        paddingHorizontal: 20,
+        lineHeight: 20
+    },
+    sallaryContainer: {
+        flexDirection: "row-reverse",
+        right: "37%",
+        marginTop: "2%"
+    },
+    salary: {
+        color: Colors.primary,
+        fontFamily: "ArbFONTS-Montserrat-Arabic-Medium",
+        marginRight: "2%"
+    },
+    modalTitle: {
+        color: Colors.primary,
+        fontSize: 12,
+        fontFamily: "ArbFONTS-Montserrat-Arabic-Medium",
+        marginTop: "5%"
+    }
 })
 export default styles;

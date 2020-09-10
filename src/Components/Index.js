@@ -8,4 +8,6 @@ import ServicesCard from './ServicesCard';
 import Footer from './Footer';
 import ThickHeader from './ThickHeader';
 import SpecialistsCard from './SpecialistsCard';
-export { TextInput, Button, Header, FormButton, HeaderTitle, Centers, ServicesCard, Footer, ThickHeader, SpecialistsCard };
+import RateCard from './RateCard';
+import ModalSpecialistsCards from './ModalSpecialistsCards';
+export { TextInput, Button, Header, FormButton, HeaderTitle, Centers, ServicesCard, Footer, ThickHeader, SpecialistsCard, RateCard, ModalSpecialistsCards };
