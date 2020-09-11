@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
     serviceCardContainer: {
         flex: 1,
         alignItems: "center",
-        marginVertical: 10
+        margin: 10
     },
     serviceCardImage: {
         width: SCREEN_WIDTH / 2.2,

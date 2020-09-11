@@ -3,23 +3,45 @@ import { View, Text, ScrollView, Dimensions } from 'react-native';
 import { ThickHeader, SpecialistsCard, RateCard, Button, ModalSpecialistsCards } from '../../Components/Index';
 import { Colors, Constant } from '../../Constant';
 import { FontAwesome5 } from '@expo/vector-icons';
-import { Specialists, Rates } from '../../FakeData/Index';
+import { Specialists, Rates, OurService } from '../../FakeData/Index';
 import styles from './ServiceDetails.style';
 import Modal from 'react-native-modal';
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const ServiceDetails = ({ navigation }) => {
+import DateTimePickerModal from "react-native-modal-datetime-picker";
+
+const ServiceDetails = ({ navigation, route }) => {
+    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+    const [selectedDate, setSelectedDate] = useState(null)
     const [modalVisible, setModalVisible] = useState(false);
+    const { _id } = route.params;
+    const data = OurService.find((item) => item.id === _id);
+    // console.log("data", data);
+
+    const showDatePicker = () => {
+        setDatePickerVisibility(true);
+    };
+
+    const hideDatePicker = () => {
+        setDatePickerVisibility(false);
+    };
+
+    const handleConfirm = (date) => {
+        console.log("A date has been picked: ", date);
+        setSelectedDate(date)
+        hideDatePicker();
+        navigation.navigate('Map')
+    };
+    console.log("selectedDate", selectedDate);
     return (
-        <ScrollView style={{}}>
-            <ThickHeader goBackVisible={true} goBack={() => navigation.goBack()} />
+        <ScrollView style={{ flex: 1, backgroundColor: Colors.white }}>
+            <ThickHeader mainTitle={data.title} img={data.img} goBackVisible={true} goBack={() => navigation.goBack()} />
             <Text style={styles.title}>التفاصيل</Text>
-            <Text style={styles.detailsText}>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
-إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص</Text>
+            <Text style={styles.detailsText}>{data.description}</Text>
             <View style={{ marginTop: "5%" }}>
                 <Text style={styles.title}>سعر الحجز</Text>
                 <View style={styles.sallaryContainer}>
                     <FontAwesome5 name="money-bill-wave" size={24} color={Colors.primary} />
-                    <Text style={styles.salary}>120<Text>ريال</Text></Text>
+                    <Text style={styles.salary}>{data.salary}<Text>ريال</Text></Text>
                 </View>
             </View>
             <View style={{ marginTop: "5%" }}>
@@ -27,12 +49,12 @@ const ServiceDetails = ({ navigation }) => {
                 {
                     Specialists.map((i, index) => {
                         return (
-                            <SpecialistsCard key={index.toString()} data={i} />
+                            <SpecialistsCard key={index.toString()} data={i} onPress={showDatePicker} />
                         )
                     })
                 }
                 <Text style={styles.title}>التقييمات</Text>
-                <ScrollView horizontal>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                     {
                         Rates.map((i, index) => {
                             return (
@@ -67,12 +89,18 @@ const ServiceDetails = ({ navigation }) => {
                     {
                         Specialists.map((i, index) => {
                             return (
-                                <ModalSpecialistsCards key={index.toString()} data={i} onPress={() => console.log("asd")} />
+                                <ModalSpecialistsCards key={index.toString()} data={i} onPress={showDatePicker} />
                             )
                         })
                     }
                 </View>
             </Modal>
+            <DateTimePickerModal
+                isVisible={isDatePickerVisible}
+                mode="datetime"
+                onConfirm={handleConfirm}
+                onCancel={hideDatePicker}
+            />
         </ScrollView>
     )
 }

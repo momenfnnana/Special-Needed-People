@@ -4,12 +4,33 @@ import { Header, TextInput, Button, FormButton } from '../../../Components/Index
 import { Colors } from '../../../Constant';
 import styles from './SonFormData.style';
 import Modal from 'react-native-modal';
+import * as DocumentPicker from 'expo-document-picker';
+
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SonFormData = ({ navigation }) => {
     const [userName, setUserName] = useState('');
     const [age, setAge] = useState('');
     const [status, setStatus] = useState('');
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const { pdf, changePdf } = useState(null);
+    const [path, setPath] = useState(null);
+
+    const addFile = async () => {
+        const file = await DocumentPicker.getDocumentAsync({ type: "*/*" })
+        changePdf(file);
+        const { uri } = file;
+        setPath(uri);
+        console.log("uri", uri)
+    }
+
+    const formData = new FormData();
+    const fileType = '*/*'
+    formData.append('*/*', {
+        uri: path,
+        name: `*/*.${fileType}`,
+        type: `*/*/${fileType}`,
+    });
+
     return (
         <View style={styles.container}>
             <Header name="تسجيل بيانات الطفل" />
@@ -23,7 +44,7 @@ const SonFormData = ({ navigation }) => {
                         <Text style={styles.pushFile}>إرفاق تقرير لحالة الطفل</Text>
                         <Text style={styles.fileExtension}>الصيغ المسموح بها :pdf / docs / doc / jpeg </Text>
                     </View>
-                    <TouchableOpacity style={styles.buttonContainer}>
+                    <TouchableOpacity onPress={addFile} style={styles.buttonContainer}>
                         <Text style={styles.buttonText}>رفع الملف</Text>
                     </TouchableOpacity>
                 </View>
@@ -38,12 +59,7 @@ const SonFormData = ({ navigation }) => {
                 swipeDirection="down"
                 style={{ width: SCREEN_WIDTH / 1.3, alignSelf: "center" }}
             >
-                <View style={{
-                    backgroundColor: "#fff",
-                    alignItems: "center",
-                    borderRadius: 20,
-                    paddingBottom: "7%"
-                }}>
+                <View style={styles.modalContentContainer}>
                     <Image style={{ marginTop: "10%" }} source={require('../../../../assets/images/success.png')} />
                     <Text style={styles.modalTitle}>تم تسجيل بيانات الطفل بنجاح</Text>
                     <Text style={styles.modalQuestion}>هل تريد تسجيل طفل آخر ؟</Text>
@@ -56,7 +72,7 @@ const SonFormData = ({ navigation }) => {
                         }} title="نعم" TextColor={Colors.secondary} borderColor={Colors.secondary} />
                         <FormButton onPress={() => {
                             setIsModalVisible(false),
-                            navigation.navigate('Home')
+                                navigation.navigate('Home')
                         }} title="لا" TextColor={Colors.primary} borderColor={Colors.primary} />
                     </View>
                 </View>

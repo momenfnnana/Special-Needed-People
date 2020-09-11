@@ -61,6 +61,12 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: Colors.primary,
         fontFamily: "ArbFONTS-Montserrat-Arabic-Medium"
+    },
+    modalContentContainer: {
+        backgroundColor: "#fff",
+        alignItems: "center",
+        borderRadius: 20,
+        paddingBottom: "7%"
     }
 })
 export default styles;

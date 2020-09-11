@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Splash, Login, SignUp, SonFormData, Home, ServiceDetails } from '../screens/Index';
+import { Splash, Login, SignUp, SonFormData, Home, ServiceDetails, Map } from '../screens/Index';
 const Stack = createStackNavigator();
 
 const Navigator = () => {
@@ -15,6 +14,7 @@ const Navigator = () => {
                 <Stack.Screen name="SonFormData" component={SonFormData} />
                 <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="ServiceDetails" component={ServiceDetails} />
+                <Stack.Screen name="Map" component={Map} />
             </Stack.Navigator>
         </NavigationContainer>
     )

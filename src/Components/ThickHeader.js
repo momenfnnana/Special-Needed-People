@@ -3,7 +3,7 @@ import { Text, Image, SafeAreaView, TouchableOpacity } from 'react-native';
 import styles from './Component.style';
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { Colors } from '../Constant';
-const ThickHeader = ({ goBack, goBackVisible, goSetting, settingVisible, aboveTitle, aboveTitleVisible }) => {
+const ThickHeader = ({ goBack, goBackVisible, goSetting, settingVisible, aboveTitle, aboveTitleVisible, mainTitle, img }) => {
     return (
         <SafeAreaView>
             <Image style={styles.thickHeaderImageContainer} source={require('../../assets/images/thickHeader.png')} />
@@ -11,8 +11,8 @@ const ThickHeader = ({ goBack, goBackVisible, goSetting, settingVisible, aboveTi
             {
                 aboveTitleVisible === true ? <Text style={styles.ThickHeaderAboveTitle}>{aboveTitle}</Text> : null
             }
-            <Image style={styles.thickHeaderMainImage} source={require('../../assets/images/imgAll1.png')} />
-            <Text style={styles.ThickHeaderTitle}>تقييم وتشخيص الطفل وتوجيه الأم</Text>
+            <Image style={styles.thickHeaderMainImage} source={img} />
+            <Text style={styles.ThickHeaderTitle}>{mainTitle}</Text>
             {
                 goBackVisible === true ? <TouchableOpacity onPress={goBack} style={styles.ThickHeaderArrow}>
                     <Feather name="arrow-right" size={24} color={Colors.white} />

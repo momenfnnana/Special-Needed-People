@@ -6,8 +6,7 @@ import { Constant } from '../../Constant';
 import { CentersData, OurService } from '../../FakeData/Index';
 import { Colors } from '../../Constant';
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const SCREEN_HEIGHT = Dimensions.get('window').height;
-const Home = () => {
+const Home = ({ navigation }) => {
     const [home, setHome] = useState(true);
     const [person, setPerson] = useState(false);
     const [calender, setCalender] = useState(false);
@@ -50,7 +49,7 @@ const Home = () => {
                     <FlatList
                         data={OurService}
                         keyExtractor={(i, index) => index.toString()}
-                        renderItem={(item) => <ServicesCard data={item} />}
+                        renderItem={(item) => <ServicesCard data={item} onPress={() => navigation.navigate('ServiceDetails', { _id: item.item.id })} />}
                         numColumns={2}
                         style={{ width: SCREEN_WIDTH, alignSelf: "center", marginBottom: "40%" }}
                     />
