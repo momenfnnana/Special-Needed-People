@@ -2,12 +2,12 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import styles from './Component.style';
 import Stars from 'react-native-stars';
-import { FontAwesome } from '@expo/vector-icons'
+import { FontAwesome } from '@expo/vector-icons';
 const Centers = ({ data, index }) => {
     return (
-        <View style={{ height: "70%", top: -10, marginHorizontal: 20, justifyContent: "center", alignItems: "center" }}>
+        <View style={styles.centerContainer}>
             <Image source={data.img} />
-            <Text style={styles.centerTitle}>{data.title}</Text>
+            <Text style={styles.centerTitle}>{data.name}</Text>
             <Stars
                 default={3}
                 count={5}

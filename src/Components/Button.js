@@ -1,23 +1,15 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
-import { Colors } from '../Constant';
-const SCREEN_WIDTH = Dimensions.get('window').width;
+import { View, Text, TouchableOpacity } from 'react-native';
+import styles from './Component.style';
 const Button = ({ backgroundColor, borderColor, borderWidth, TextColor, title, onPress }) => {
     return (
         <View>
-            <TouchableOpacity style={{
-                width: SCREEN_WIDTH / 1.1,
+            <TouchableOpacity style={[styles.ButtonContainer, {
                 backgroundColor: backgroundColor,
-                paddingVertical: "5%",
-                alignItems: "center",
-                borderRadius: 10,
-                marginVertical: "2%",
                 borderColor: borderColor,
                 borderWidth: borderWidth
-            }}
-                onPress={onPress}
-            >
-                <Text style={{ color: TextColor, fontSize: 15, fontFamily: "ArbFONTS-Montserrat-Arabic-Regular" }}>{title}</Text>
+            }]} onPress={onPress}>
+                <Text style={[styles.ButtonTitle, { color: TextColor }]}>{title}</Text>
             </TouchableOpacity>
         </View>
     )

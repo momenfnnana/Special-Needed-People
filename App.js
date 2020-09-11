@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Home, Splash, IntroSlider, Login, SignUp, SonFormData, ServiceDetails } from './src/screens/Index';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
+import Navigator from './src/navigation/Navigator';
 
 export default function App() {
 
@@ -34,9 +35,7 @@ export default function App() {
 
 
   return (
-    <View style={styles.container}>
-      <ServiceDetails />
-    </View>
+    <Navigator />
   );
 }
 

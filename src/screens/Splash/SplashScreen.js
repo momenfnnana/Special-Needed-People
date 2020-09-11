@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, Image } from 'react-native';
 import styles from './SplashScreen.style';
-const Splash = () => {
+const Splash = ({ navigation }) => {
+    useEffect(() => {
+        setTimeout(() => {
+            navigation.navigate('Login')
+        }, 3000);
+    }, [])
     return (
         <View>
             <Image style={styles.topLogo} source={require('../../../assets/images/lightLogo.png')} />

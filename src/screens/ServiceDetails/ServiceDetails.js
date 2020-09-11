@@ -60,14 +60,14 @@ const ServiceDetails = ({ navigation }) => {
                 <View style={{
                     backgroundColor: "#fff",
                     alignItems: "center",
-                    borderRadius: 20,
+                    borderRadius: 15,
                     paddingBottom: "7%"
                 }}>
                     <Text style={styles.modalTitle}>اختر الأخصائي</Text>
                     {
                         Specialists.map((i, index) => {
                             return (
-                                <ModalSpecialistsCards key={index.toString()} data={i} />
+                                <ModalSpecialistsCards key={index.toString()} data={i} onPress={() => console.log("asd")} />
                             )
                         })
                     }

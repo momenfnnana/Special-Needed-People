@@ -3,10 +3,53 @@ import { Colors } from '../Constant';
 const SCREEN_WIDTH = Dimensions.get('window').width
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const styles = StyleSheet.create({
+    AuthenticationHeaderContainer: {
+        position: "absolute",
+        top: 0,
+        alignSelf: "center"
+    },
+    AuthenticationHeaderTitle: {
+        color: Colors.white,
+        fontSize: 18,
+        fontFamily: "ArbFONTS-Montserrat-Arabic-SemiBold",
+        position: "absolute",
+        top: "10%"
+    },
+    LinearGradient: {
+        alignItems: 'center',
+        width: SCREEN_WIDTH
+    },
+    AuthenticationHeaderImage: {
+        marginTop: SCREEN_HEIGHT / 10
+    },
+    ButtonContainer: {
+        width: SCREEN_WIDTH / 1.1,
+        paddingVertical: "5%",
+        alignItems: "center",
+        borderRadius: 10,
+        marginVertical: "2%",
+    },
+    ButtonTitle: {
+        fontSize: 15,
+        fontFamily: "ArbFONTS-Montserrat-Arabic-Regular"
+    },
+    addSonButton: {
+        width: SCREEN_WIDTH / 3.5,
+        backgroundColor: Colors.white,
+        paddingVertical: "3%",
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: 5,
+        marginVertical: "2%",
+        borderWidth: 1.5,
+        marginHorizontal: "1%"
+    },
+    addSonButtonTitle: {
+        fontSize: 15,
+        fontFamily: "ArbFONTS-Montserrat-Arabic-Regular"
+    },
     Headercontainer: {
-        top: "-5%",
-        position: "relative",
-        width: "100%"
+        width: SCREEN_WIDTH
     },
     HeaderImageBackground: {
         width: SCREEN_WIDTH,
@@ -38,7 +81,14 @@ const styles = StyleSheet.create({
         color: Colors.primary,
         fontSize: 10,
         fontFamily: "ArbFONTS-Montserrat-Arabic-Medium",
-        marginVertical: 3
+        marginVertical: 3,
+        textAlign: "center"
+    },
+    centerContainer: {
+        height: "100%",
+        marginHorizontal: 20,
+        justifyContent: "center",
+        alignItems: "center"
     },
     footerContainer: {
         flexDirection: "row",
@@ -106,6 +156,11 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         width: SCREEN_WIDTH
     },
+    specialistsContainerAbove: {
+        flexDirection: "row-reverse",
+        alignItems: "center",
+        justifyContent: "center"
+    },
     specialistsDetailsContainer: {
         flexDirection: "row-reverse",
         justifyContent: "space-between",
@@ -114,7 +169,6 @@ const styles = StyleSheet.create({
     },
     specialistsName: {
         fontSize: 10,
-        color: Colors.primary,
         fontFamily: "ArbFONTS-Montserrat-Arabic-Medium"
     },
     specialistsStatusContainer: {
@@ -134,7 +188,6 @@ const styles = StyleSheet.create({
     },
     specialistsJob: {
         fontSize: 8,
-        color: Colors.semiGray,
         fontFamily: "ArbFONTS-Montserrat-Arabic-Regular"
     },
     specialistsButtonContainer: {
@@ -198,6 +251,34 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginVertical: "3%"
+    },
+    serviceCardContainer: {
+        flex: 1,
+        alignItems: "center",
+        marginVertical: 10
+    },
+    serviceCardImage: {
+        width: SCREEN_WIDTH / 2.2,
+        borderRadius: 20,
+        height: SCREEN_HEIGHT / 3,
+    },
+    serviceCardTitle: {
+        position: "absolute",
+        bottom: "5%",
+        alignSelf: "center",
+        color: Colors.white,
+        fontSize: 9,
+        fontFamily: "ArbFONTS-Montserrat-Arabic-Medium",
+        width: "70%",
+        textAlign: "center"
+    },
+    textInput: {
+        borderBottomColor: Colors.primary + 33,
+        borderBottomWidth: 1,
+        width: SCREEN_WIDTH / 1.1,
+        textAlign: "right",
+        fontFamily: "ArbFONTS-Montserrat-Arabic-Medium",
+        fontSize: 11
     }
 })
 export default styles;

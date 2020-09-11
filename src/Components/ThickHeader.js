@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, SafeAreaView, TouchableOpacity } from 'react-native';
+import { Text, Image, SafeAreaView, TouchableOpacity } from 'react-native';
 import styles from './Component.style';
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { Colors } from '../Constant';

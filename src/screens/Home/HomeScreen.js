@@ -4,6 +4,7 @@ import { HeaderTitle, Centers, ServicesCard, Footer } from '../../Components/Ind
 import styles from './HomeScreen.style';
 import { Constant } from '../../Constant';
 import { CentersData, OurService } from '../../FakeData/Index';
+import { Colors } from '../../Constant';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 const Home = () => {
@@ -27,26 +28,34 @@ const Home = () => {
         setCalender(false)
     }
     return (
-        <View style={{ flex: 1 }}>
-            <HeaderTitle title="الرئيسية" />
-            <Text style={[styles.centers, { top: Constant.space }]}>المراكز</Text>
-            <ScrollView showsHorizontalScrollIndicator={false} horizontal style={{ marginTop: "-10%" }}>
-                {
-                    CentersData.map((i, index) => {
-                        return (
-                            <Centers key={index.toString()} data={i} index={index} />
-                        )
-                    })
-                }
+        <View style={{ flex: 1, backgroundColor: Colors.white }}>
+            <HeaderTitle title="الرئيسية" propsStyle={{
+                position: "absolute",
+                top: Constant.space,
+                zIndex: 10,
+            }} />
+            <ScrollView style={{ flex: 1, paddingTop: "20%" }}>
+                <Text style={[styles.centers]}>المراكز</Text>
+                <ScrollView showsHorizontalScrollIndicator={false} horizontal style={{ marginVertical: "5%" }}>
+                    {
+                        CentersData.map((i, index) => {
+                            return (
+                                <Centers key={index.toString()} data={i} index={index} />
+                            )
+                        })
+                    }
+                </ScrollView>
+                <View>
+                    <Text style={[styles.centers]}>خدماتنا</Text>
+                    <FlatList
+                        data={OurService}
+                        keyExtractor={(i, index) => index.toString()}
+                        renderItem={(item) => <ServicesCard data={item} />}
+                        numColumns={2}
+                        style={{ width: SCREEN_WIDTH, alignSelf: "center", marginBottom: "40%" }}
+                    />
+                </View>
             </ScrollView>
-            <Text style={[styles.centers, { top: Constant.space }]}>خدماتنا</Text>
-            <FlatList
-                data={OurService}
-                keyExtractor={(i, index) => index.toString()}
-                renderItem={(item) => <ServicesCard data={item} />}
-                numColumns={2}
-                style={{ width: SCREEN_WIDTH, alignSelf: "center", marginTop: "-8%" }}
-            />
             <Footer
                 styleProps={{ borderRadius: 50, position: "absolute", bottom: "2%", right: "3%", left: "3%" }}
                 HomeVisible={home}

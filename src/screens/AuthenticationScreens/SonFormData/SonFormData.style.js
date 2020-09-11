@@ -1,16 +1,29 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet,Dimensions } from 'react-native';
 import { Colors } from '../../../Constant';
-
+const SCREEN_WIDTH = Dimensions.get('window').width;
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: Colors.white
+    },
+    formContainer: {
+        flex: 1,
+        justifyContent: "center",
+        marginTop: "50%",
+        alignItems: "center"
+    },
     sonData: {
         color: Colors.secondary,
         fontSize: 14,
-        fontFamily: "ArbFONTS-Montserrat-Arabic-Medium"
+        fontFamily: "ArbFONTS-Montserrat-Arabic-Medium",
+        alignSelf: "flex-end",
+        marginRight: "5%"
     },
     uploadFile: {
         flexDirection: "row-reverse",
         justifyContent: "space-between",
-        marginTop: "5%"
+        marginTop: "5%",
+        width: SCREEN_WIDTH/1.1
     },
     pushFile: {
         fontSize: 12,

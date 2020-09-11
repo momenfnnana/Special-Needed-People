@@ -5,15 +5,15 @@ import { Colors } from '../../../Constant';
 import styles from './SonFormData.style';
 import Modal from 'react-native-modal';
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const SonFormData = () => {
+const SonFormData = ({ navigation }) => {
     const [userName, setUserName] = useState('');
     const [age, setAge] = useState('');
     const [status, setStatus] = useState('');
     const [isModalVisible, setIsModalVisible] = useState(false);
     return (
-        <View style={{ flex: 1 }}>
+        <View style={styles.container}>
             <Header name="تسجيل بيانات الطفل" />
-            <View style={{ flex: 1, justifyContent: "center", marginTop: "50%" }}>
+            <View style={styles.formContainer}>
                 <Text style={styles.sonData}>بيانات الطفل</Text>
                 <TextInput value={userName} setValue={setUserName} password={false} placeholder="اسم الطفل" keyboardType="default" marginVertical="3%" />
                 <TextInput value={age} setValue={setAge} password={false} placeholder="العمر" keyboardType="default" marginVertical="3%" />
@@ -37,7 +37,6 @@ const SonFormData = () => {
                 onSwipeComplete={() => setIsModalVisible(false)}
                 swipeDirection="down"
                 style={{ width: SCREEN_WIDTH / 1.3, alignSelf: "center" }}
-            // backdropColor="transparent"
             >
                 <View style={{
                     backgroundColor: "#fff",
@@ -56,10 +55,8 @@ const SonFormData = () => {
                                 setIsModalVisible(false)
                         }} title="نعم" TextColor={Colors.secondary} borderColor={Colors.secondary} />
                         <FormButton onPress={() => {
-                            // setUserName(''),
-                            //     setAge(''),
-                            //     setStatus(''),
-                            //     setIsModalVisible(false)
+                            setIsModalVisible(false),
+                            navigation.navigate('Home')
                         }} title="لا" TextColor={Colors.primary} borderColor={Colors.primary} />
                     </View>
                 </View>
