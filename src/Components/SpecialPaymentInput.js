@@ -1,15 +1,15 @@
 import React from 'react';
-import { View, TextInput as Input } from 'react-native';
+import { View, Text, TextInput as Input } from 'react-native';
 import { Colors } from '../Constant';
 import styles from './Component.style';
-const TextInput = ({ value, setValue, placeholder, password, keyboardType, marginVertical }) => {
+const SpecialPaymentInput = ({ value, setValue, placeholder, password, keyboardType, marginVertical }) => {
     return (
         <View>
             <Input
                 value={value}
                 onChangeText={setValue}
                 placeholder={placeholder}
-                style={[styles.textInput, { marginVertical: marginVertical }]}
+                style={[styles.specialTextInput, { marginVertical: marginVertical }]}
                 placeholderTextColor={Colors.primary}
                 secureTextEntry={password}
                 keyboardType={keyboardType}
@@ -17,4 +17,5 @@ const TextInput = ({ value, setValue, placeholder, password, keyboardType, margi
         </View>
     )
 }
-export default TextInput;
+
+export default SpecialPaymentInput;

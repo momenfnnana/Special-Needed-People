@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Splash, Login, SignUp, SonFormData, Home, ServiceDetails, Map } from '../screens/Index';
+import { Splash, Login, SignUp, SonFormData, Home, ServiceDetails, Map, OnlinePayment } from '../screens/Index';
 const Stack = createStackNavigator();
 
 const Navigator = () => {
@@ -15,6 +15,7 @@ const Navigator = () => {
                 <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="ServiceDetails" component={ServiceDetails} />
                 <Stack.Screen name="Map" component={Map} />
+                <Stack.Screen name="OnlinePayment" component={OnlinePayment} />
             </Stack.Navigator>
         </NavigationContainer>
     )

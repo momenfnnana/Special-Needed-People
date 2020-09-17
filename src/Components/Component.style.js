@@ -279,6 +279,45 @@ const styles = StyleSheet.create({
         textAlign: "right",
         fontFamily: "ArbFONTS-Montserrat-Arabic-Medium",
         fontSize: 11
+    },
+    specialTextInput: {
+        borderBottomColor: Colors.primary + 33,
+        borderBottomWidth: 1,
+        width: SCREEN_WIDTH / 3,
+        textAlign: "right",
+        fontFamily: "ArbFONTS-Montserrat-Arabic-Medium",
+        fontSize: 11
+    },
+    modalPaymentContainer: {
+        borderBottomWidth: 1,
+        paddingVertical: 20,
+        width: SCREEN_WIDTH / 1.5
+    },
+    modalInsideContainer: {
+        flexDirection: "row",
+        borderRightWidth: 3,
+        paddingRight: 10,
+        justifyContent: "flex-end",
+        alignItems: "center",
+        height: 70
+    },
+    modalImageContainer: {
+        borderColor: Colors.primary,
+        borderWidth: 1,
+        borderRadius: 5,
+        width: 70,
+        height: 30,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    modalPaymentCardTitle: {
+        fontSize: 12,
+        fontFamily: "ArbFONTS-Montserrat-Arabic-Medium",
+        color: Colors.primary,
+        width: 110,
+        alignSelf: "center",
+        textAlign: "right",
+        marginRight: 10
     }
 })
 export default styles;

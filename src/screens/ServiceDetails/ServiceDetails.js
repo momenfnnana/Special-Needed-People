@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, Dimensions } from 'react-native';
 import { ThickHeader, SpecialistsCard, RateCard, Button, ModalSpecialistsCards } from '../../Components/Index';
-import { Colors, Constant } from '../../Constant';
+import { Colors } from '../../Constant';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Specialists, Rates, OurService } from '../../FakeData/Index';
 import styles from './ServiceDetails.style';
@@ -15,7 +15,6 @@ const ServiceDetails = ({ navigation, route }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const { _id } = route.params;
     const data = OurService.find((item) => item.id === _id);
-    // console.log("data", data);
 
     const showDatePicker = () => {
         setDatePickerVisibility(true);

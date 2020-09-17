@@ -30,7 +30,7 @@ const Home = ({ navigation }) => {
         <View style={{ flex: 1, backgroundColor: Colors.white }}>
             <HeaderTitle title="الرئيسية" propsStyle={{
                 position: "absolute",
-                top: Constant.space,
+                top: "-6.5%",
                 zIndex: 10,
             }} />
             <ScrollView style={{ flex: 1, paddingTop: "20%" }}>
