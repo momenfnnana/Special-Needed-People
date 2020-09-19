@@ -1,23 +1,59 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { Splash, Login, SignUp, SonFormData, Home, ServiceDetails, Map, OnlinePayment } from '../screens/Index';
+import React, { useContext } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import {
+  Splash,
+  Login,
+  SignUp,
+  SonFormData,
+  Home,
+  ServiceDetails,
+  Map,
+  OnlinePayment,
+  IntroSlider,
+  CentersScreen,
+} from "../screens/Index";
+import { Context as AuthContext } from "../Contexts/AuthContext";
 const Stack = createStackNavigator();
+const AuthStack = createStackNavigator();
+const HomeStack = createStackNavigator();
+
+const AuthNavigation = () => {
+  return (
+    <AuthStack.Navigator screenOptions={{ headerShown: false }}>
+      <AuthStack.Screen name="Login" component={Login} />
+      <AuthStack.Screen name="SignUp" component={SignUp} />
+      <AuthStack.Screen name="SonFormData" component={SonFormData} />
+    </AuthStack.Navigator>
+  );
+};
+
+const HomeNavigation = () => {
+  return (
+    <HomeStack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="ServiceDetails" component={ServiceDetails} />
+      <Stack.Screen name="Map" component={Map} />
+      <Stack.Screen name="OnlinePayment" component={OnlinePayment} />
+      <Stack.Screen name="Centers" component={CentersScreen} />
+    </HomeStack.Navigator>
+  );
+};
 
 const Navigator = () => {
-    return (
-        <NavigationContainer>
-            <Stack.Navigator screenOptions={{ headerShown: false }}>
-                <Stack.Screen name="Splash" component={Splash} />
-                <Stack.Screen name="Login" component={Login} />
-                <Stack.Screen name="SignUp" component={SignUp} />
-                <Stack.Screen name="SonFormData" component={SonFormData} />
-                <Stack.Screen name="Home" component={Home} />
-                <Stack.Screen name="ServiceDetails" component={ServiceDetails} />
-                <Stack.Screen name="Map" component={Map} />
-                <Stack.Screen name="OnlinePayment" component={OnlinePayment} />
-            </Stack.Navigator>
-        </NavigationContainer>
-    )
-}
+  const { state } = useContext(AuthContext);
+  console.log("state", state.token);
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Splash" component={Splash} />
+        <Stack.Screen name="IntroSlider" component={IntroSlider} />
+        <Stack.Screen
+          name="Main"
+          component={!state.token ? AuthNavigation : HomeNavigation}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 export default Navigator;
