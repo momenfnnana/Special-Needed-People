@@ -102,9 +102,19 @@ const styles = StyleSheet.create({
     right: "3%",
     left: "3%",
   },
-  thickHeaderImageContainer: {
+  containThickBg: {
+    position: "relative",
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT / 3,
+    justifyContent: "flex-end",
+  },
+  thickHeaderImageContainer: {
+    position: "absolute",
+    // top:0,
+    // right:0,
+    // r
+    width: "100%",
+    height: "100%",
   },
   thickHeaderLeftLogo: {
     position: "absolute",
@@ -120,18 +130,17 @@ const styles = StyleSheet.create({
     fontFamily: "ArbFONTS-Montserrat-Arabic-Medium",
   },
   thickHeaderMainImage: {
-    position: "absolute",
-    top: SCREEN_HEIGHT / 7,
     alignSelf: "center",
     width: 200,
     height: 200,
     resizeMode: "contain",
+    marginBottom: -90,
   },
   ThickHeaderTitle: {
     fontSize: 17,
     color: Colors.primary,
     fontFamily: "ArbFONTS-Montserrat-Arabic-SemiBold",
-    marginTop: "13%",
+    marginTop: 90,
     alignSelf: "center",
     width: "50%",
     textAlign: "center",
@@ -220,8 +229,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 4.65,
     elevation: 8,
-    marginVertical: "5%",
-    padding: 20,
+    // marginVertical: "10%",
+    paddingHorizontal: 20,
+    paddingBottom: 20,
     borderRadius: 10,
   },
   RateDescription: {
@@ -233,9 +243,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   rateImg: {
-    position: "absolute",
-    top: "-25%",
+    // position: "absolute",
+    // top: "-25%",
     alignSelf: "center",
+    width: 60,
+    height: 60,
+    marginTop: -30,
   },
   serviceStar: {
     color: "yellow",

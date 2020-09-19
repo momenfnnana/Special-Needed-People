@@ -1,12 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { View, Text, Image } from "react-native";
 import styles from "./SplashScreen.style";
 import { StatusBar } from "expo-status-bar";
+import { Context as AuthContext } from "../../Contexts/AuthContext";
 
 const Splash = ({ navigation }) => {
+  const { state } = useContext(AuthContext);
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate("IntroSlider");
+      state.token
+        ? navigation.navigate("Main")
+        : navigation.navigate("IntroSlider");
     }, 3000);
   }, []);
   return (

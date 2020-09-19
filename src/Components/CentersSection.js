@@ -4,10 +4,14 @@ import { Colors } from "../Constant";
 // import styles from "./Component.style";
 import Card from "./Card";
 import DefaultText from "./DefaultText";
-const CentersSection = ({ Item }) => {
+const CentersSection = ({ Item, myNavigation }) => {
+  const navigation = myNavigation;
   return (
     <Card styleCard={{ marginHorizontal: 15, marginBottom: 20 }}>
-      <TouchableOpacity style={styles.containCard}>
+      <TouchableOpacity
+        style={styles.containCard}
+        onPress={() => navigation.navigate("CenterDetails", { _id: Item.id })}
+      >
         <Image source={Item.img} style={styles.imageCard} />
         <DefaultText textStyle={styles.textCard}>{Item.title}</DefaultText>
       </TouchableOpacity>

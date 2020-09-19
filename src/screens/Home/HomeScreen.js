@@ -55,24 +55,28 @@ const Home = ({ navigation }) => {
         </ScrollView>
         <View>
           <Text style={[styles.centers]}>خدماتنا</Text>
-          <FlatList
-            data={OurService}
-            keyExtractor={(i, index) => index.toString()}
-            renderItem={(item) => (
-              <ServicesCard
-                data={item}
-                onPress={() =>
-                  navigation.navigate("ServiceDetails", { _id: item.item.id })
-                }
-              />
-            )}
-            numColumns={2}
+          <View
             style={{
-              width: SCREEN_WIDTH,
-              alignSelf: "center",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              marginTop: 20,
               marginBottom: "40%",
             }}
-          />
+          >
+            {OurService.map((item, index) => (
+              <View
+                style={{ width: SCREEN_WIDTH / 2 - 10, marginHorizontal: 5 }}
+              >
+                <ServicesCard
+                  key={index.toString()}
+                  data={item}
+                  onPress={() =>
+                    navigation.navigate("ServiceDetails", { _id: item.id })
+                  }
+                />
+              </View>
+            ))}
+          </View>
         </View>
       </ScrollView>
       <Footer myNavigation={homeNavigation} screenName="home" />

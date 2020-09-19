@@ -8,6 +8,7 @@ import ServiceDetails from "./ServiceDetails/ServiceDetails";
 import Map from "./Map/MapScreen";
 import OnlinePayment from "./OnlinePayment/OnlinePayment";
 import CentersScreen from "./Centers/CentersScreen";
+import CenterDetailsScreen from "./CenterDetails/CenterDetailsScreen";
 export {
   Home,
   Splash,
@@ -19,4 +20,5 @@ export {
   Map,
   OnlinePayment,
   CentersScreen,
+  CenterDetailsScreen,
 };

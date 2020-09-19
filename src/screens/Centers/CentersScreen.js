@@ -24,9 +24,7 @@ const CentersScreen = ({ navigation }) => {
       >
         {CentersData.map((item, index) => (
           <View key={index.toString()} style={{ marginTop: 10 }}>
-            <CentersSection Item={item} />
-            <CentersSection Item={item} />
-            <CentersSection Item={item} />
+            <CentersSection myNavigation={centersNavigation} Item={item} />
           </View>
         ))}
       </ScrollView>
