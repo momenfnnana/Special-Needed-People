@@ -29,7 +29,7 @@ const CenterDetailsScreen = ({ navigation, route }) => {
         contentContainerStyle={{
           marginTop: 10,
           paddingVertical: 30,
-          paddingHorizontal: 5,
+          paddingHorizontal: 5, 
         }}
         horizontal
         showsHorizontalScrollIndicator={false}
