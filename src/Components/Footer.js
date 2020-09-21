@@ -34,7 +34,7 @@ const Footer = ({ myNavigation, styleProps, screenName }) => {
           <Feather name="grid" size={29} color={Colors.white} />
         )}
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
         <FontAwesome5
           name={screenName === "profile" ? "user-alt" : "user"}
           size={27}

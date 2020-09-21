@@ -19,6 +19,7 @@ const ThickHeader = ({
   aboveTitleVisible,
   mainTitle,
   img,
+  viewImage,
 }) => {
   return (
     <SafeAreaView>
@@ -27,10 +28,14 @@ const ThickHeader = ({
           style={styles.thickHeaderImageContainer}
           source={require("../../assets/images/thickHeader.png")}
         />
-        <Image
-          style={StyleSheet.flatten([styles.thickHeaderMainImage])}
-          source={img}
-        />
+        {viewImage ? (
+          viewImage
+        ) : (
+          <Image
+            style={StyleSheet.flatten([styles.thickHeaderMainImage])}
+            source={img}
+          />
+        )}
       </View>
       <Image
         style={styles.thickHeaderLeftLogo}
@@ -40,7 +45,11 @@ const ThickHeader = ({
         <Text style={styles.ThickHeaderAboveTitle}>{aboveTitle}</Text>
       )}
 
-      <Text style={styles.ThickHeaderTitle}>{mainTitle}</Text>
+      <Text
+        style={[styles.ThickHeaderTitle, { marginTop: viewImage ? 105 : 90 }]}
+      >
+        {mainTitle}
+      </Text>
       {goBackVisible === true ? (
         <TouchableOpacity onPress={goBack} style={styles.ThickHeaderArrow}>
           <Feather name="arrow-right" size={24} color={Colors.white} />

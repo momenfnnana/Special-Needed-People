@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
     fontFamily: "ArbFONTS-Montserrat-Arabic-Medium",
     marginVertical: 3,
     textAlign: "center",
+    transform: [{ scaleX: -1 }],
   },
   centerContainer: {
     height: "100%",
@@ -140,7 +141,6 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: Colors.primary,
     fontFamily: "ArbFONTS-Montserrat-Arabic-SemiBold",
-    marginTop: 90,
     alignSelf: "center",
     width: "50%",
     textAlign: "center",
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     flexDirection: "row-reverse",
     justifyContent: "space-between",
     width: 165,
-    // alignSelf: "flex-start"
+    alignSelf: "flex-end",
   },
   specialistsName: {
     fontSize: 10,
@@ -241,6 +241,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     alignSelf: "center",
     textAlign: "center",
+    transform: [{ scaleX: -1 }],
   },
   rateImg: {
     // position: "absolute",

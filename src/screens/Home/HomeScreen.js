@@ -13,25 +13,7 @@ import { CentersData, OurService } from "../../FakeData/Index";
 import { Colors } from "../../Constant";
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const Home = ({ navigation }) => {
-  const [home, setHome] = useState(true);
-  const [person, setPerson] = useState(false);
-  const [calender, setCalender] = useState(false);
   const homeNavigation = navigation;
-  const togglePersonScreen = () => {
-    setPerson(true);
-    setHome(false);
-    setCalender(false);
-  };
-  const toggleCalenderScreen = () => {
-    setPerson(false);
-    setHome(false);
-    setCalender(true);
-  };
-  const toggleHomeScreen = () => {
-    setPerson(false);
-    setHome(true);
-    setCalender(false);
-  };
   return (
     <Container style={{ flex: 1, backgroundColor: Colors.white }}>
       <HeaderTitle
@@ -47,7 +29,7 @@ const Home = ({ navigation }) => {
         <ScrollView
           showsHorizontalScrollIndicator={false}
           horizontal
-          style={{ marginVertical: "5%" }}
+          style={{ marginVertical: "5%", transform: [{ scaleX: -1 }] }}
         >
           {CentersData.map((i, index) => {
             return <Centers key={index.toString()} data={i} index={index} />;
@@ -65,6 +47,7 @@ const Home = ({ navigation }) => {
           >
             {OurService.map((item, index) => (
               <View
+                key={index.toString()}
                 style={{ width: SCREEN_WIDTH / 2 - 10, marginHorizontal: 5 }}
               >
                 <ServicesCard

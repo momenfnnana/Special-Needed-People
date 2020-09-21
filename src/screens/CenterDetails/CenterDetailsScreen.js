@@ -26,10 +26,11 @@ const CenterDetailsScreen = ({ navigation, route }) => {
       <Text style={styles.detailsText}>{data.description}</Text>
       <Text style={styles.title}>التقيمات</Text>
       <ScrollView
+        style={{ transform: [{ scaleX: -1 }] }}
         contentContainerStyle={{
           marginTop: 10,
           paddingVertical: 30,
-          paddingHorizontal: 5, 
+          paddingHorizontal: 5,
         }}
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -49,7 +50,10 @@ const CenterDetailsScreen = ({ navigation, route }) => {
           }}
         >
           {OurService.map((item, index) => (
-            <View style={{ width: width / 2 - 10, marginHorizontal: 5 }}>
+            <View
+              key={index.toString()}
+              style={{ width: width / 2 - 10, marginHorizontal: 5 }}
+            >
               <ServicesCard
                 key={index.toString()}
                 data={item}

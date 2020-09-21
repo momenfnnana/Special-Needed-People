@@ -74,6 +74,7 @@ const ServiceDetails = ({ navigation, route }) => {
         })}
         <Text style={[styles.title, { marginTop: 15 }]}>التقيمات</Text>
         <ScrollView
+          style={{ transform: [{ scaleX: -1 }] }}
           contentContainerStyle={{
             marginTop: 10,
             paddingVertical: 30,

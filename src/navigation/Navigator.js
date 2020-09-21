@@ -13,6 +13,9 @@ import {
   IntroSlider,
   CentersScreen,
   CenterDetailsScreen,
+  ProfileScreen,
+  EditChildInfo,
+  AssignmentService,
 } from "../screens/Index";
 import { Context as AuthContext } from "../Contexts/AuthContext";
 const Stack = createStackNavigator();
@@ -38,6 +41,9 @@ const HomeNavigation = () => {
       <Stack.Screen name="OnlinePayment" component={OnlinePayment} />
       <Stack.Screen name="Centers" component={CentersScreen} />
       <Stack.Screen name="CenterDetails" component={CenterDetailsScreen} />
+      <Stack.Screen name="EditChildInfo" component={EditChildInfo} />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Screen name="AssignmentService" component={AssignmentService} />
     </HomeStack.Navigator>
   );
 };

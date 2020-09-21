@@ -67,8 +67,6 @@ const HomeSliderSection = ({ arrayAdv, Loading }) => {
   return (
     <View style={styles.containAdSlider}>
       <Carousel
-        // snapToEnd={true}
-        // pagingEnabled={true}
         layout={"tinder"}
         onSnapToItem={(i) => setActive(i)}
         autoplay={false}
@@ -78,8 +76,6 @@ const HomeSliderSection = ({ arrayAdv, Loading }) => {
         sliderHeight={viewportHeight}
         itemWidth={(viewportWidth * 2.7) / 3}
         directionalLockEnabled={true}
-        style={{ flexDirection: "row-reverse" }}
-        contentContainerStyle={{ flexDirection: "column-reverse" }}
       />
       <View style={styles.paginationDots}>
         {IntroCardData.length > 1 &&
@@ -197,7 +193,7 @@ const styles = StyleSheet.create({
     marginTop: (viewportHeight * 2.1) / 3,
     height: 16,
     marginBottom: "0%",
-    flexDirection: "row-reverse",
+    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
   },
