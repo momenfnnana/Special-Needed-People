@@ -16,6 +16,12 @@ import {
   ProfileScreen,
   EditChildInfo,
   AssignmentService,
+  BabyProfileScreen,
+  SettingScreen,
+  EditProfileScreen,
+  ReportsScreen,
+  ResetPasswordScreen,
+  specialistProfileScreen,
 } from "../screens/Index";
 import { Context as AuthContext } from "../Contexts/AuthContext";
 const Stack = createStackNavigator();
@@ -44,6 +50,15 @@ const HomeNavigation = () => {
       <Stack.Screen name="EditChildInfo" component={EditChildInfo} />
       <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="AssignmentService" component={AssignmentService} />
+      <Stack.Screen name="BabyProfile" component={BabyProfileScreen} />
+      <Stack.Screen name="Setting" component={SettingScreen} />
+      <Stack.Screen name="EditProfile" component={EditProfileScreen} />
+      <Stack.Screen name="Reports" component={ReportsScreen} />
+      <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
+      <Stack.Screen
+        name="specialistProfile"
+        component={specialistProfileScreen}
+      />
     </HomeStack.Navigator>
   );
 };

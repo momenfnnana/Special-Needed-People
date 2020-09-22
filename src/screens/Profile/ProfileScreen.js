@@ -1,8 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { Text, ScrollView, View, Dimensions, Image } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import DefaultText from "../../Components/DefaultText";
 import {
   ThickHeader,
   Container,
@@ -13,8 +11,6 @@ import {
 } from "../../Components/Index";
 import { Colors } from "../../Constant";
 import styles from "./ProfileScreen.style";
-const { height, width } = Dimensions.get("window");
-import Constants from "expo-constants";
 
 const ProfileScreen = ({ navigation }) => {
   const profileNavigation = navigation;
@@ -56,6 +52,7 @@ const ProfileScreen = ({ navigation }) => {
           mainTitle={"ريهام أحمد"}
           img={require("../../../assets/images/UserImage.png")}
           settingVisible={true}
+          goSetting={() => navigation.navigate("Setting")}
           viewImage={ImageProfile()}
         />
         <Button
@@ -66,6 +63,7 @@ const ProfileScreen = ({ navigation }) => {
           title="تعديل الملف الشخصي"
           styleText={{ fontSize: 18 }}
           styleButton={{ paddingVertical: 13 }}
+          onPress={() => navigation.navigate("EditProfile")}
         />
         <Text style={styles.title}>أطفالي</Text>
         <BabyCard myNavigation={profileNavigation} />

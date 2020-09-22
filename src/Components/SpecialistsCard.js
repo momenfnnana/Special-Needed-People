@@ -9,18 +9,26 @@ const SpecialistsCard = ({
   textStyle,
   jobStyle,
   imageStyle,
+  myNavigation,
 }) => {
+  const navigation = myNavigation;
   return (
     <View style={styles.specialistsContainer}>
       <View style={styles.specialistsContainerAbove}>
-        <Image
-          style={[{ marginRight: "5%" }, imageStyle]}
-          source={
-            data.img === null
-              ? require("../../assets/images/UserImage.png")
-              : data.img
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate("specialistProfile", { _id: data.id })
           }
-        />
+        >
+          <Image
+            style={[{ marginRight: "5%" }, imageStyle]}
+            source={
+              data.img === null
+                ? require("../../assets/images/UserImage.png")
+                : data.img
+            }
+          />
+        </TouchableOpacity>
         <View style={{ marginRight: 10 }}>
           <View style={styles.specialistsDetailsContainer}>
             <Text

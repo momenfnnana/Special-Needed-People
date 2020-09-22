@@ -91,8 +91,10 @@ const ServiceDetails = ({ navigation, route }) => {
         textStyle={{ fontSize: 14 }}
         jobStyle={{ fontSize: 12 }}
       />
-      <Text style={[styles.title, { marginTop: 20 }]}>تقرير الحالة</Text>
-      <ReportState item={Specialists[0]} />
+      <View style={{ marginTop: 20, paddingHorizontal: 20 }}>
+        <Text style={[styles.title, {right: 0}]}>تقرير الحالة</Text>
+        <ReportState item={Specialists[0]} />
+      </View>
       <Text style={[styles.title, { marginTop: 20 }]}>التقييم</Text>
       <View
         style={{

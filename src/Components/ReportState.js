@@ -6,7 +6,7 @@ import DefaultText from "./DefaultText";
 
 const ReportState = ({ item }) => {
   return (
-    <View style={{ paddingHorizontal: 20, marginTop: 10 }}>
+    <View style={{ marginTop: 15, }}>
       <Card
         styleCard={{
           paddingHorizontal: 15,

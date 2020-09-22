@@ -12,6 +12,12 @@ import CenterDetailsScreen from "./CenterDetails/CenterDetailsScreen";
 import ProfileScreen from "./Profile/ProfileScreen";
 import EditChildInfo from "./EditChildInfo/EditChildInfo";
 import AssignmentService from "./AssignmentService/AssignmentService";
+import BabyProfileScreen from "./BabyProfile/BabyProfile";
+import SettingScreen from "./Setting/Setting";
+import EditProfileScreen from "./EditProfile/EditProfileScreen";
+import ReportsScreen from "./Reports/ReportsScreen";
+import ResetPasswordScreen from "./ResetPassword/ResetPasswordScreen";
+import specialistProfileScreen from "./specialistProfile/specialistProfileScreen";
 export {
   Home,
   Splash,
@@ -27,4 +33,10 @@ export {
   ProfileScreen,
   EditChildInfo,
   AssignmentService,
+  BabyProfileScreen,
+  SettingScreen,
+  EditProfileScreen,
+  ReportsScreen,
+  ResetPasswordScreen,
+  specialistProfileScreen,
 };

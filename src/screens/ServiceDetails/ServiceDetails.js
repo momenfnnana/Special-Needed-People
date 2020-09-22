@@ -14,6 +14,7 @@ import styles from "./ServiceDetails.style";
 import Modal from "react-native-modal";
 const SCREEN_WIDTH = Dimensions.get("window").width;
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import { StatusBar } from "expo-status-bar";
 
 const ServiceDetails = ({ navigation, route }) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -21,7 +22,7 @@ const ServiceDetails = ({ navigation, route }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const { _id } = route.params;
   const data = OurService.find((item) => item.id === _id);
-
+  const sDetailsNavigation = navigation;
   const showDatePicker = () => {
     setDatePickerVisibility(true);
   };
@@ -39,6 +40,7 @@ const ServiceDetails = ({ navigation, route }) => {
   console.log("selectedDate", selectedDate);
   return (
     <ScrollView style={{ flex: 1, backgroundColor: Colors.white }}>
+      <StatusBar backgroundColor={Colors.primary} style="light" />
       <ThickHeader
         mainTitle={data.title}
         img={data.img}
@@ -66,6 +68,7 @@ const ServiceDetails = ({ navigation, route }) => {
         {Specialists.map((i, index) => {
           return (
             <SpecialistsCard
+              myNavigation={sDetailsNavigation}
               key={index.toString()}
               data={i}
               onPress={showDatePicker}

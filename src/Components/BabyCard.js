@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Colors } from "../Constant";
 import Button from "./Button";
 import DefaultText from "./DefaultText";
@@ -10,18 +10,20 @@ const BabyCard = ({ myNavigation }) => {
   return (
     <View style={{ paddingHorizontal: 15 }}>
       {Baby.map((item, index) => (
-        <View key={index.toString()} style={styles.card}>
-          <View style={styles.row}>
-            <DefaultText textStyle={styles.keyText}>اسم الطفل</DefaultText>
-            <DefaultText textStyle={styles.text}>{item.childName}</DefaultText>
-          </View>
-          <View style={[styles.row, { marginVertical: 10 }]}>
-            <DefaultText textStyle={styles.keyText}>حالته</DefaultText>
-            <DefaultText textStyle={styles.text}>{item.status}</DefaultText>
-          </View>
-          <View style={styles.row}>
-            <DefaultText textStyle={styles.keyText}>عمره</DefaultText>
-            <DefaultText textStyle={styles.text}>{item.age}</DefaultText>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("BabyProfile", { _id: item.id })}
+          key={index.toString()}
+          style={styles.card}
+        >
+          <View style={[styles.row, { justifyContent: "flex-start" }]}>
+            <Image source={item.img} style={styles.image} />
+            <View>
+              <DefaultText textStyle={{ fontSize: 19, color: Colors.primary }}>
+                {item.childName}
+              </DefaultText>
+              <DefaultText textStyle={styles.text}>{item.status}</DefaultText>
+              <DefaultText textStyle={styles.text}>{item.age}</DefaultText>
+            </View>
           </View>
           <View style={[styles.row, { marginTop: 10 }]}>
             <Button
@@ -42,7 +44,7 @@ const BabyCard = ({ myNavigation }) => {
               title="حدف"
             />
           </View>
-        </View>
+        </TouchableOpacity>
       ))}
     </View>
   );
@@ -50,9 +52,17 @@ const BabyCard = ({ myNavigation }) => {
 
 const styles = StyleSheet.create({
   card: {
+    backgroundColor: Colors.white,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
     borderRadius: 20,
     overflow: "hidden",
-    backgroundColor: "#E9E9E9",
     marginBottom: 20,
     paddingVertical: 15,
     paddingHorizontal: 15,
@@ -67,12 +77,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   text: {
-    color: Colors.primary,
-    fontSize: 16,
+    color: Colors.semiGray,
+    fontSize: 15,
   },
   button: {
     borderWidth: 1,
     width: "100%",
+  },
+  image: {
+    width: 70,
+    height: 70,
+    marginLeft: 10,
   },
 });
 export default BabyCard;

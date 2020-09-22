@@ -119,8 +119,12 @@ const styles = StyleSheet.create({
   },
   thickHeaderLeftLogo: {
     position: "absolute",
-    right: 0,
-    top: "3%",
+    right: "-2%",
+    top: 10,
+    bottom: "-5%",
+    height: "80%",
+    width: "32%",
+    resizeMode: "contain",
   },
   ThickHeaderAboveTitle: {
     position: "absolute",
@@ -338,6 +342,13 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     textAlign: "right",
     marginRight: 10,
+  },
+  childText: {
+    fontSize: 14,
+    color: Colors.semiGray,
+    alignSelf: "center",
+    textAlign: "center",
+    marginBottom: 5,
   },
 });
 export default styles;
