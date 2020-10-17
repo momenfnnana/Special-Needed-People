@@ -23,11 +23,13 @@ import { FontAwesome5, FontAwesome } from "@expo/vector-icons";
 import Card from "../../Components/Card";
 import Stars from "react-native-stars";
 import ContactModal from "../../Components/ContactModal";
+import Modal from 'react-native-modal';
 
 const specialistProfileScreen = ({ navigation, route }) => {
   const sprofileNavigation = navigation;
   const [message, setMessage] = useState(null);
   const [modalVisible, setModalVisible] = useState({ contact: false });
+  const [modalVisibleOptions, setModalVisibleOptions] = useState(false);
   const [rate, setRate] = useState(2.5);
   const { _id } = route.params;
   const ImageProfile = () => {
@@ -119,6 +121,7 @@ const specialistProfileScreen = ({ navigation, route }) => {
             </DefaultText>
           </TouchableOpacity>
           <TouchableOpacity
+            onPress={() => setModalVisibleOptions(!modalVisibleOptions)}
             style={{
               paddingVertical: 8,
               flex: 0.17,
@@ -264,6 +267,25 @@ const specialistProfileScreen = ({ navigation, route }) => {
         modalVisible={modalVisible.contact}
         cancelModal={() => setModalVisible({ ...modalVisible, contact: false })}
       />
+      <Modal
+        isVisible={isModalVisible}
+        onBackdropPress={() => setModalVisible(false)}
+        onSwipeComplete={() => setModalVisible(false)}
+        swipeDirection="down"
+      >
+        <View style={{
+          backgroundColor: "#fff",
+          position: "absolute",
+          bottom: "-3%",
+          left: "-5%",
+          right: "-5%",
+          borderTopRightRadius: 20,
+          borderTopLeftRadius: 20,
+          paddingBottom: Platform.OS === "android" ? "5%" : "10%"
+        }}>
+          
+        </View>
+      </Modal>
     </Container>
   );
 };

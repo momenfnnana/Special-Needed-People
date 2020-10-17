@@ -55,10 +55,7 @@ const HomeNavigation = () => {
       <Stack.Screen name="EditProfile" component={EditProfileScreen} />
       <Stack.Screen name="Reports" component={ReportsScreen} />
       <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
-      <Stack.Screen
-        name="specialistProfile"
-        component={specialistProfileScreen}
-      />
+      <Stack.Screen name="specialistProfile" component={specialistProfileScreen} />
     </HomeStack.Navigator>
   );
 };
